@@ -1,4 +1,5 @@
 <?php
+use App\Models\SendMailer;
 
 return [
 
@@ -40,11 +41,17 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             // 'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST'),
-            'port' => env('MAIL_PORT'),
-            'encryption' => env('MAIL_ENCRYPTION'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            // 'host' => env('MAIL_HOST'),
+            // 'port' => env('MAIL_PORT'),
+            // 'encryption' => env('MAIL_ENCRYPTION'),
+            // 'username' => env('MAIL_USERNAME'),
+            // 'password' => env('MAIL_PASSWORD'),
+
+            'host' => SendMailer::first()->host,
+            'port' => SendMailer::first()->port,
+            'encryption' => SendMailer::first()->encryption,
+            'username' => SendMailer::first()->username,
+            'password' => SendMailer::first()->password,
             'timeout' => null,
             // 'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
 

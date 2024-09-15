@@ -1,20 +1,23 @@
 <?php
 // namespace App\helper;
+use App\Models\SmsConfig;
 class SMS
 {
 
-    public static function Send($number, $message)
+    public static function Send($number, $message, $type)
     {
+        $smsConfig = SmsConfig::first();
 
-        $url = "http://bulksmsbd.net/api/smsapi";
-        $api_key = "ZjvNGWfYlrvk6wUKhQQb";
-        $senderid = "8809617614289";
+        $url        = $smsConfig->url;
+        $api_key    = $smsConfig->api_key;
+        $senderid   = $smsConfig->sender_id;
 
         $data = [
-            "api_key" => $api_key,
-            "senderid" => $senderid,
-            "number" => $number,
-            "message" => $message
+            "api_key"   => $api_key,
+            "senderid"  => $senderid,
+            "number"    => $number,
+            "message"   => $message,
+            "type"      => $type,
         ];
 
 

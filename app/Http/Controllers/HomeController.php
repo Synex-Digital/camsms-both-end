@@ -26,9 +26,6 @@ class HomeController extends Controller
         return view('dashboard.index');
     }
 
-    public function sms_history()
-    {
-        return view('dashboard.pages.sms.history');
-    }
+    
 
 }

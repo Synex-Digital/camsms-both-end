@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('send_histories', function (Blueprint $table) {
+        Schema::create('send_sms', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            $table->string('category_id')->nullable();
-            $table->enum('type', ['group', 'individual']);
+            $table->integer('category_id')->nullable();
+            $table->string('type');
             $table->string('message');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('send_histories');
+        Schema::dropIfExists('send_sms');
     }
 };

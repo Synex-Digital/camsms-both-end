@@ -9,9 +9,7 @@
         </ol>
         <div class="col-lg-12">
             <div class="card">
-                @if(session('danger'))
-                    <div class="alert alert-danger">{{ session('danger') }}</div>
-                @endif
+                
 
                 <div class="card-header">
                     <h4 class="card-title">
@@ -26,31 +24,26 @@
                                     <th><strong>Sl. No</strong></th>
                                     <th><strong>Sender</strong></th>
                                     <th><strong>Category</strong></th>
-                                    <th><strong>Receiver Name</strong></th>
                                     <th><strong>Receiver Number</strong></th>
-                                    <th><strong>Receiver Address</strong></th>
                                     <th><strong>Type</strong></th>
                                     <th><strong>Message</strong></th>
                                     <th><strong>Action</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($send_history as $history)
                                     <tr>
-                                        <td><strong>1</strong></td>
+                                        <td><strong>{{ $loop->iteration }}</strong></td>
 
                                         <td><span class="w-space-no">Synex Digital</span></td>
 
-                                        <td><span class="w-space-no">Jubayer</span></td>
+                                        <td><span class="w-space-no">{{ $history->category->name }}</span></td>
 
-                                        <td><span class="w-space-no">jubayer@gmail.com</span></td>
+                                        <td><span class="w-space-no">{{ $history->number }}</span></td>
 
-                                        <td><span class="w-space-no">01748296345</span></td>
+                                        <td><span class="w-space-no">{{ $history->type }}</span></td>
 
-                                        <td><span class="w-space-no">Songkor, Dhaka</span></td>
-
-                                        <td></td>
-
-                                        <td><span class="w-space-no">Web Developer</span></td>
+                                        <td><span class="w-space-no">{{ $history->message }}</span></td>
 
                                         <td>
                                             <div class="d-flex">
@@ -60,6 +53,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

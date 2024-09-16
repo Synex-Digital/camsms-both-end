@@ -160,8 +160,8 @@
                             <span class="nav-text">SMS</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('sms.config') }}">Configuration</a></li>
-                            <li><a href="{{ route('sms.send') }}">Send SMS</a></li>
+                            <li><a href="#">Configuration</a></li>
+                            <li><a href="#">Send SMS</a></li>
                             <li><a href="{{ route('sms.history') }}">History</a></li>
                         </ul>
                     </li>

@@ -9,12 +9,10 @@ class MailHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['to', 'category_id', 'type', 'subject', 'content'];
-
     public function contact(){
         return $this->belongsTo(Contact::class);
     }
-
+    
     public function category(){
         return $this->belongsTo(Category::class);
     }

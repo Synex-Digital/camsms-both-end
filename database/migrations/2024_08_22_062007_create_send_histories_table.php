@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('send_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('number');
+            $table->string('user_id');
+            $table->string('contact_id');
             $table->string('category_id')->nullable();
             $table->enum('type', ['group', 'individual']);
             $table->string('message');
